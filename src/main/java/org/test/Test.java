@@ -30,7 +30,7 @@ public class Test {
 		TypedQuery<Client> queryNamedId = entityManager.createNamedQuery("Client.findById", Client.class);
 		queryNamedId.setParameter("id", clientId);
 		// success
-		System.err.println(queryExternalOrId.getResultList());
+		System.err.println(queryNamedId.getResultList());
 
 		TypedQuery<Client> queryId = entityManager.createQuery("SELECT client\n"
 				+ " FROM Client client\n"
