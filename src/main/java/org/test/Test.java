@@ -31,8 +31,17 @@ public class Test {
 		// -------------------------------------------------
 		System.err.println("find():");
 		System.err.println(entityManager.find(Client.class, clientId));
-		
+		// success
 
+		// -------------------------------------------------
+		TypedQuery<Client> queryIdId = entityManager.createQuery("SELECT client\n"
+				+ " FROM Client client\n"
+				+ " WHERE client.id = :id0 AND client.id = :id0", Client.class);
+		queryIdId.setParameter("id0", clientId);
+		System.err.println("queryIdId:");
+		System.err.println(queryIdId.getResultList());
+		// success
+		
 		// -------------------------------------------------
 		TypedQuery<Client> queryNamedId = entityManager.createNamedQuery("Client.findById", Client.class);
 		queryNamedId.setParameter("id", clientId);
